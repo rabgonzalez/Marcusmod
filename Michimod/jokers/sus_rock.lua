@@ -14,7 +14,7 @@ SMODS.Joker {
     blueprint_compat = true,
     eternal_compat = true,
     unlocked = true,
-    discovered = false,
+    discovered = true,
     atlas = 'sus_rock',
 
     calculate = function(self, card, context)

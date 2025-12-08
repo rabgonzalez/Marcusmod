@@ -10,6 +10,15 @@ return {
                     "{C:inactive}(Currently{} {X:mult,C:white}X#1#{} {C:inactive}Mult){}",
                 },
             },
+            j_mm_awebo_bird = {
+                name = "Awebo Bird",
+                text = {
+                    "{C:green}#1# in #2#{} chance to add",
+                    "{C:attention}Egg{} joker at the",
+                    "start of round",
+                    "{C:inactive}(Must have room){}",
+                },
+            },
         }
     },
 
