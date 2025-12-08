@@ -1,0 +1,14 @@
+{
+  "id": "Michimod",
+  "name": "Michimod",
+  "display_name": "Michimod",
+  "author": ["Ruben"],
+  "description": "Mod diseñado para Glezy",
+  "prefix": "mm",
+  "main_file": "Michimod.lua",
+  "priority": 0,
+  "badge_colour": "ffa500",
+  "badge_text_colour": "",
+  "version": "0.0.1",
+  "dependencies": ["Steamodded (>=1.0.0~BETA-0614a)"]
+}
