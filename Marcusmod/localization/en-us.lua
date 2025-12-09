@@ -13,7 +13,7 @@ return {
             j_mm_rigatoni_pasta = {
                 name = "Rigatoni pasta",
                 text = {
-                    "{C:green}#1# in 3{} chance to add",
+                    "{C:green}#2# in #1#{} chance to add",
                     "{C:attention}Ramen{} joker at the",
                     "start of round",
                     "{C:inactive}(Must have room){}",
