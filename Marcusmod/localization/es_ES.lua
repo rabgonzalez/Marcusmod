@@ -17,13 +17,13 @@ return {
         dictionary = {
             a_chips = "+#1#",
             a_chips_minus = "-#1#",
-            a_hands = "+#1# Hands",
-            a_handsize = "+#1# Hand Size",
-            a_handsize_minus = "-#1# Hand Size",
+            a_hands = "+#1# Manos",
+            a_handsize = "+#1# Tamaño de Mano",
+            a_handsize_minus = "-#1# Tamaño de Mano",
             a_mult = "+#1# Mult",
             a_mult_minus = "-#1# Mult",
-            a_remaining = "#1# Remaining",
-            a_sold_tally = "#1#/#2# Sold",
+            a_remaining = "#1# Restante",
+            a_sold_tally = "#1#/#2# Vendidos",
             a_xmult = "X#1# Mult",
             a_xmult_minus = "-X#1# Mult",
         }

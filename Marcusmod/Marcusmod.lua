@@ -1,4 +1,4 @@
-Michimod = {}
+Marcusmod = {}
 
 -- Load global functions and variables
 assert(SMODS.load_file("globals.lua"))()

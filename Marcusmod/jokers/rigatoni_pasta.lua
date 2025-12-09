@@ -1,13 +1,13 @@
 SMODS.Atlas({
-    key = "awebo_bird",
+    key = "rigatoni_pasta",
     path = "j_awebo_bird.png",
     px = 71,
     py = 95
 })
 
 SMODS.Joker {
-    key = "awebo_bird",
-    config = { extra = { chance_numerator = 1, chance_denominator = 2 } },
+    key = "rigatoni_pasta",
+    config = { extra = { odds = 2 } },
     pos = { x = 0, y = 0 },
     rarity = 1,
     cost = 1,
@@ -15,22 +15,11 @@ SMODS.Joker {
     eternal_compat = true,
     unlocked = true,
     discovered = true,
-    atlas = 'awebo_bird',
+    atlas = 'rigatoni_pasta',
 
     calculate = function(self, card, context)
         if not context.setting_blind or context.blueprint then
             return
-        end
-
-        local base_num = tonumber(card.ability.extra.chance_numerator)
-        local base_den = tonumber(card.ability.extra.chance_denominator)
-
-        -- Double the chance for each Dice joker present
-        for _, joker in ipairs(G.jokers.cards) do
-            print(joker.ability.name)
-            if joker.ability.name == 'Oops! All 6s' then
-                card.ability.extra.chance_numerator = base_num * 2
-            end
         end
 
         if #G.jokers.cards >= G.jokers.config.card_limit then
@@ -41,12 +30,14 @@ SMODS.Joker {
             }
         end
 
-        if (math.random() * base_den) < base_num then
+        local odds = tonumber(card.ability.extra.odds)
+
+        if (math.random() * 3) < odds then
             G.E_MANAGER:add_event(Event({
                 trigger = "after",
                 func = function()
                     -- TODO: Hay que buscar la forma de crear un huevo, y no un joker aleatorio
-                    local new_card = create_card("Joker", G.jokers, nil, 0.99, nil, nil, nil, "Egg") -- (type, parent, suit, r, rank, debuff, edition, name)
+                    local new_card = create_card("Joker", G.jokers, nil, 0.99, nil, nil, nil, "Ramen") -- (type, parent, suit, r, rank, debuff, edition, name)
                     new_card:add_to_deck()
                     G.jokers:emplace(new_card)
                     new_card:start_materialize()
