@@ -1,6 +1,6 @@
 SMODS.Atlas({
     key = "rigatoni_pasta",
-    path = "j_awebo_bird.png",
+    path = "j_rigatoni_pasta.png",
     px = 71,
     py = 95
 })
