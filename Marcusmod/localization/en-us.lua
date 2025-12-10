@@ -22,9 +22,9 @@ return {
                 name = "Marcus",
                 text = {
                     "Gives {C:red}+#2#{} Mult",
-                    "for every {C:spectral}Marcusmod{}",
+                    "for every {C:attention}Marcusmod{}",
                     "joker in hand",
-                    "{C:inactive}(Currently{} {C:red}+#1#{} Mult){}",
+                    "{C:inactive}(Currently{} {C:red}+#1#{} {C:inactive}Mult){}",
                 },
             },
         }
