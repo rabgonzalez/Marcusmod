@@ -1,11 +1,23 @@
 --- GLOBALS
 G.C.MM = {
+    -- Colours
     RED = HEX("FF0000"),
     BLACK = HEX("000000"),
     BLUE = HEX("0000FF"),
     GREEN = HEX("00FF00"),
     WHITE = HEX("FFFFFF"),
     TRANSPARENT = HEX("00000000"),
+
+    -- Game Data
+    DISCARDS = {
+        STONE_CRAD = 0
+    },
+
+    TOTAL = {
+        MARCUSMOD = {
+            JOKER = 0
+        }
+    }
 }
 
 -- Hooks
