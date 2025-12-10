@@ -7,7 +7,7 @@ SMODS.Atlas({
 
 SMODS.Joker {
     key = "rigatoni_pasta",
-    config = { extra = { odds = 5 } },
+    config = { extra = { odds = 1 } },
     pos = { x = 0, y = 0 },
     rarity = 1,
     cost = 1,
@@ -36,8 +36,7 @@ SMODS.Joker {
             G.E_MANAGER:add_event(Event({
                 trigger = "after",
                 func = function()
-                    local new_card = add_joker("j_ramen", nil, nil, nil)
-                    new_card:add_to_deck()
+                    add_joker("j_ramen", nil, nil, nil)
                     return true
                 end,
             }))

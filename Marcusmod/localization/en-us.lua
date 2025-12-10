@@ -4,10 +4,9 @@ return {
             j_mm_sus_rock = {
                 name = "Sus Rock",
                 text = {
-                    "This joker gains",
-                    "{X:mult,C:white}X#2#{} Mult every time",
+                    "{X:mult,C:white}X#1#{} Mult",
+                    "gains {X:mult,C:white}X#2#{} Mult every time",
                     "a {C:attention}Stone{} card is {C:red}discarded{}",
-                    "{C:inactive}(Currently{} {X:mult,C:white}X#1#{} {C:inactive}Mult){}",
                 },
             },
             j_mm_rigatoni_pasta = {
@@ -17,6 +16,15 @@ return {
                     "{C:attention}Ramen{} joker at the",
                     "start of round",
                     "{C:inactive}(Must have room){}",
+                },
+            },
+            j_mm_marcus = {
+                name = "Marcus",
+                text = {
+                    "Gives {C:red}+#2#{} Mult",
+                    "for every {C:spectral}Marcusmod{}",
+                    "joker in hand",
+                    "{C:inactive}(Currently{} {C:red}+#1#{} Mult){}",
                 },
             },
         }
