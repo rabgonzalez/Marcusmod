@@ -7,7 +7,7 @@ SMODS.Atlas({
 
 SMODS.Joker {
     key = "rigatoni_pasta",
-    config = { extra = { odds = 1 } },
+    config = { extra = { odds = 5 } },
     pos = { x = 0, y = 0 },
     rarity = 1,
     cost = 1,
@@ -18,8 +18,7 @@ SMODS.Joker {
     atlas = 'rigatoni_pasta',
 
     calculate = function(self, card, context)
-        -- If we are not in select blind mode or we have a blueprint, do nothing
-        if not context.setting_blind or context.blueprint then
+        if not context.setting_blind then
             return
         end
 
@@ -43,7 +42,6 @@ SMODS.Joker {
         end
     end,
 
-    -- Description of the variables to show in the UI
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.odds, G.GAME.probabilities.normal } }
     end

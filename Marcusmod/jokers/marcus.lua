@@ -18,15 +18,33 @@ SMODS.Joker {
     atlas = 'marcus',
 
     calculate = function(self, card, context)
-        if context.joker_main and not context.blueprint then
+        if context.joker_main then
+            local total_mult = get_total_marcus_jokers(card) * card.ability.extra.mult_mod
             return {
-                mult = G.C.TOTAL.MARCUSMOD.JOKER
+                mult = total_mult
             }
         end
     end,
 
-    -- Description of the variables to show in the UI
     loc_vars = function(self, info_queue, card)
-        return { vars = {  G.C.TOTAL.MARCUSMOD.JOKER, card.ability.extra.mult_mod } }
+        local total_mult = get_total_marcus_jokers(card) * card.ability.extra.mult_mod
+        return { vars = { total_mult, card.ability.extra.mult_mod } }
     end
 }
+
+function get_total_marcus_jokers(own_card)
+    local marcus_jokers_count = 0
+
+    -- Check if there are jokers in hand (prevents collection crash)
+    if G.jokers then
+        for _, v in ipairs(G.jokers.cards) do
+            -- For every joker in hand (except own joker), check if it's from Marcusmod
+            if v ~= own_card then
+                if v.config.center.mod and v.config.center.mod.id == 'Marcusmod' then
+                    marcus_jokers_count = marcus_jokers_count + 1
+                end
+            end
+        end
+    end
+    return marcus_jokers_count
+end

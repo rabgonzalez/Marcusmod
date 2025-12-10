@@ -18,8 +18,7 @@ SMODS.Joker {
     atlas = 'sus_rock',
 
     calculate = function(self, card, context)
-        -- If we are discarding and it's not due to blueprint
-        if context.discard and context.other_card and not context.blueprint then
+        if context.discard and context.other_card then
             -- If the discarded card is a Stone Card
             if context.other_card.ability.name == 'Stone Card' then
                 -- We add the extra to the current Xmult value
@@ -43,7 +42,7 @@ SMODS.Joker {
         end
     end,
 
-    -- Description of the variables to show in the UI
+    -- Local variables
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_CENTERS.m_stone -- Add Stone tag to the joker info queue
         return { vars = { card.ability.Xmult, card.ability.extra } }
