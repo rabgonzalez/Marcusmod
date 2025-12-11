@@ -7,10 +7,10 @@ SMODS.Atlas({
 
 SMODS.Joker {
     key = "marcus",
-    config = { extra = { mult_mod = 20 } },
+    config = { extra = { mult_mod = 10 } },
     pos = { x = 0, y = 0 },
     rarity = 1,
-    cost = 1,
+    cost = 4,
     blueprint_compat = true,
     eternal_compat = true,
     unlocked = true,
@@ -19,7 +19,7 @@ SMODS.Joker {
 
     calculate = function(self, card, context)
         if context.joker_main then
-            local total_mult = get_total_marcus_jokers(card) * card.ability.extra.mult_mod
+            local total_mult = total_marcus_jokers(card) * card.ability.extra.mult_mod
             return {
                 mult = total_mult
             }
@@ -27,12 +27,12 @@ SMODS.Joker {
     end,
 
     loc_vars = function(self, info_queue, card)
-        local total_mult = get_total_marcus_jokers(card) * card.ability.extra.mult_mod
+        local total_mult = total_marcus_jokers(card) * card.ability.extra.mult_mod
         return { vars = { total_mult, card.ability.extra.mult_mod } }
     end
 }
 
-function get_total_marcus_jokers(own_card)
+function total_marcus_jokers(own_card)
     local marcus_jokers_count = 0
 
     -- Check if there are jokers in hand (prevents collection crash)

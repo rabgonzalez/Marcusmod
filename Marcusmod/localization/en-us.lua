@@ -4,9 +4,10 @@ return {
             j_mm_sus_rock = {
                 name = "Sus Rock",
                 text = {
-                    "{X:mult,C:white}X#1#{} Mult",
-                    "gains {X:mult,C:white}X#2#{} Mult every time",
-                    "a {C:attention}Stone{} card is {C:red}discarded{}",
+                    "This joker gains {X:mult,C:white}X#2#{} Mult",
+                    "every time a {C:attention}Stone{}",
+                    "card is discarded",
+                    "{C:inactive}(Currently{} {C:red}X#1#{} {C:inactive}Mult){}",
                 },
             },
             j_mm_rigatoni_pasta = {
@@ -22,9 +23,25 @@ return {
                 name = "Marcus",
                 text = {
                     "Gives {C:red}+#2#{} Mult",
-                    "for every {C:attention}Marcusmod{}",
-                    "joker in hand",
+                    "for all other {C:attention}Marcusmod{}",
+                    "jokers in hand",
                     "{C:inactive}(Currently{} {C:red}+#1#{} {C:inactive}Mult){}",
+                },
+            },
+            j_mm_3per_low_fat_milk = {
+                name = "3% Low Fat Milk",
+                text = {
+                    "Has a {C:green}#2# in #1#{}",
+                    "chance to upgrade to",
+                    "{C:attention}1% Low Fat Milk{} joker",
+                },
+            },
+            j_mm_1per_low_fat_milk = {
+                name = "1% Low Fat Milk",
+                text = {
+                    "Gains {C:chips,E:1}+#1#{} Chips",
+                    "each time a",
+                    "hand is played"
                 },
             },
         }
