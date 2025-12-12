@@ -23,7 +23,7 @@ return {
                 name = "Marcus",
                 text = {
                     "Gives {C:red}+#2#{} Mult",
-                    "for all other {C:attention}Marcusmod{}",
+                    "for all other {C:gold}Marcusmod{}",
                     "jokers in hand",
                     "{C:inactive}(Currently{} {C:red}+#1#{} {C:inactive}Mult){}",
                 },
@@ -33,7 +33,7 @@ return {
                 text = {
                     "Has a {C:green}#2# in #1#{}",
                     "chance to upgrade to",
-                    "{C:attention}1% Low Fat Milk{} joker",
+                    "{C:legendary}1% Low Fat Milk{} joker",
                 },
             },
             j_mm_1per_low_fat_milk = {
@@ -42,6 +42,14 @@ return {
                     "Gains {C:chips,E:1}+#1#{} Chips",
                     "each time a",
                     "hand is played"
+                },
+            },
+            j_mm_walgreens_coupon = {
+                name = "Walgreens Coupon",
+                text = {
+                    "Gives {C:money}+#1#${} of interest",
+                    "every {C:red}#2#{} skipped blinds",
+                    "{C:inactive}({C:red}#3#{} {C:inactive}remaining){}",
                 },
             },
         }
