@@ -52,6 +52,15 @@ return {
                     "{C:inactive}({C:red}#3#{} {C:inactive}remaining){}",
                 },
             },
+            j_mm_stealth_mode = {
+                name = "Stealth Mode",
+                text = {
+                    "If all hands played this round",
+                    "are {C:attention}#1#{}, gives",
+                    "{C:planet}planet card{} for that hand",
+                    "{C:inactive}(suit changes at end of round){}"
+                },
+            },
         }
     },
 
