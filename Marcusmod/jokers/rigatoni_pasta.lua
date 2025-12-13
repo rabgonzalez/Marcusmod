@@ -33,7 +33,6 @@ SMODS.Joker {
         if (math.random() * card.ability.extra.odds) < G.GAME.probabilities.normal then
             -- We create and add to deck a Ramen Joker
             G.E_MANAGER:add_event(Event({
-                trigger = "after",
                 func = function()
                     add_joker("j_ramen", nil, nil, nil)
                     return true

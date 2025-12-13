@@ -24,7 +24,6 @@ SMODS.Joker {
                 card:remove()
 
                 G.E_MANAGER:add_event(Event({
-                    trigger = "before",
                     func = function()
                         add_joker("j_mm_1per_low_fat_milk", nil, nil, nil)
                         return true
