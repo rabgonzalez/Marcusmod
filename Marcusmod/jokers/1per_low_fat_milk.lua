@@ -7,7 +7,7 @@ SMODS.Atlas({
 
 SMODS.Joker {
     key = "1per_low_fat_milk",
-    config = { extra = { chips = 10000 } },
+    config = { extra = { x_chips = 10 } },
     pos = { x = 0, y = 0 },
     rarity = 4,
     cost = nil,
@@ -20,7 +20,7 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.joker_main then
             return {
-                chips = card.ability.extra.chips
+                chips = G.GAME.chips * card.ability.extra.x_chips
             }
         end
     end,

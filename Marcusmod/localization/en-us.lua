@@ -47,8 +47,8 @@ return {
             j_mm_walgreens_coupon = {
                 name = "Walgreens Coupon",
                 text = {
-                    "Gives {C:money}+#1#${} of interest",
-                    "every {C:red}#2#{} skipped blinds",
+                    "Gives {C:money}#1#%{} discount in the",
+                    "shop every {C:red}#2#{} skipped blinds",
                     "{C:inactive}({C:red}#3#{} {C:inactive}remaining){}",
                 },
             },
