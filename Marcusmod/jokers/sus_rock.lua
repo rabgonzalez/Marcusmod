@@ -7,10 +7,10 @@ SMODS.Atlas({
 
 SMODS.Joker {
     key = "sus_rock",
-    config = { extra = 0.2, Xmult = 1 },
+    config = { extra = 0.25, Xmult = 1, max_Xmult = 5 },
     pos = { x = 0, y = 0 },
-    rarity = 2,
-    cost = 5,
+    rarity = 1,
+    cost = 4,
     blueprint_compat = true,
     eternal_compat = true,
     unlocked = true,
@@ -18,6 +18,8 @@ SMODS.Joker {
     atlas = 'sus_rock',
 
     calculate = function(self, card, context)
+        if card.ability.Xmult >= card.ability.max_Xmult then return end
+
         if context.discard and context.other_card then
             -- If the discarded card is a Stone Card
             if context.other_card.ability.name == 'Stone Card' then
@@ -45,6 +47,6 @@ SMODS.Joker {
     -- Local variables
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_CENTERS.m_stone -- Add Stone tag to the joker info queue
-        return { vars = { card.ability.Xmult, card.ability.extra } }
+        return { vars = { card.ability.Xmult, card.ability.extra, card.ability.max_Xmult } }
     end
 }

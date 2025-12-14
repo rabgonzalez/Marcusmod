@@ -11,14 +11,14 @@ SMODS.Joker {
     pos = { x = 0, y = 0 },
     rarity = 4,
     cost = nil,
-    blueprint_compat = true,
+    blueprint_compat = false,
     eternal_compat = true,
     unlocked = false,
     discovered = true,
     atlas = '1per_low_fat_milk',
 
     calculate = function(self, card, context)
-        if context.joker_main then
+        if context.joker_main and not context.blueprint then
             return {
                 message = localize{type='variable',key='a_chips',vars={bonus_chips}},
                 chips = card.ability.extra.chips,

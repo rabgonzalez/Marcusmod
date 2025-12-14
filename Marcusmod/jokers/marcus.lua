@@ -40,9 +40,7 @@ function total_marcus_jokers(own_card)
         for _, v in ipairs(G.jokers.cards) do
             -- For every joker in hand (except own joker), check if it's from Marcusmod
             if v ~= own_card then
-                if v.config.center.mod and v.config.center.mod.id == 'Marcusmod' then
-                    marcus_jokers_count = marcus_jokers_count + 1
-                end
+                if v.config.center.mod and v.config.center.mod.id == 'Marcusmod' then marcus_jokers_count = marcus_jokers_count + 1  end
             end
         end
     end

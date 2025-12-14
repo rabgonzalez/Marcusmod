@@ -7,10 +7,10 @@ SMODS.Atlas({
 
 SMODS.Joker {
     key = "rigatoni_pasta",
-    config = { extra = { odds = 5 } },
+    config = { extra = { odds = 8 } },
     pos = { x = 0, y = 0 },
-    rarity = 3,
-    cost = 7,
+    rarity = 2,
+    cost = 6,
     blueprint_compat = true,
     eternal_compat = true,
     unlocked = true,
@@ -18,10 +18,7 @@ SMODS.Joker {
     atlas = 'rigatoni_pasta',
 
     calculate = function(self, card, context)
-        if not context.setting_blind then
-            return
-        end
-
+        if not context.setting_blind then return  end
         if #G.jokers.cards >= G.jokers.config.card_limit then
             return {
                 message = "No space",

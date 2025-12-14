@@ -5,8 +5,8 @@ return {
                 name = "Sus Rock",
                 text = {
                     "This joker gains {X:mult,C:white}X#2#{} Mult",
-                    "every time a {C:attention}Stone{}",
-                    "card is discarded",
+                    "every time a {C:attention}Stone{} card",
+                    "is discarded (Max {C:red}X#3#{} Mult)",
                     "{C:inactive}(Currently{} {C:red}X#1#{} {C:inactive}Mult){}",
                 },
             },
@@ -14,8 +14,8 @@ return {
                 name = "Rigatoni pasta",
                 text = {
                     "{C:green}#2# in #1#{} chance to add",
-                    "{C:attention}Ramen{} joker at the",
-                    "start of round",
+                    "{C:attention}Ramen{} joker at",
+                    "the start of round",
                     "{C:inactive}(Must have room){}",
                 },
             },
@@ -23,7 +23,7 @@ return {
                 name = "Marcus",
                 text = {
                     "Gives {C:red}+#2#{} Mult",
-                    "for all other {C:gold}Marcusmod{}",
+                    "for all other {X:gold,C:white}Marcusmod{}",
                     "jokers in hand",
                     "{C:inactive}(Currently{} {C:red}+#1#{} {C:inactive}Mult){}",
                 },
@@ -33,7 +33,7 @@ return {
                 text = {
                     "Has a {C:green}#2# in #1#{}",
                     "chance to upgrade to",
-                    "{C:legendary}1% Low Fat Milk{} joker",
+                    "{C:legendary,E:1}1% Low Fat Milk{} joker",
                 },
             },
             j_mm_1per_low_fat_milk = {
@@ -47,18 +47,19 @@ return {
             j_mm_walgreens_coupon = {
                 name = "Walgreens Coupon",
                 text = {
-                    "Gives {C:money}#1#%{} discount in the",
-                    "shop every {C:red}#2#{} skipped blinds",
-                    "{C:inactive}({C:red}#3#{} {C:inactive}remaining){}",
+                    "Gives {C:attention}#1#%{} discount",
+                    "in the shop every {C:red}#2#{}",
+                    "skipped blinds (Max {C:attention}#4#%{})",
+                    "{C:inactive}({C:red}#3#{} {C:inactive}skips remaining){}",
                 },
             },
             j_mm_stealth_mode = {
                 name = "Stealth Mode",
                 text = {
                     "If all hands played this round",
-                    "are {C:attention}#1#{}, gives",
+                    "are the same type, gives",
                     "{C:planet}planet card{} for that hand",
-                    "{C:inactive}(suit changes at end of round){}"
+                    "{C:inactive}(playing hand: {C:attention}#1#{}{C:inactive}){}"
                 },
             },
         }
