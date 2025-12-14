@@ -7,7 +7,7 @@ SMODS.Atlas({
 
 SMODS.Joker {
     key = "3per_low_fat_milk",
-    config = { extra = { odds = 100 } },
+    config = { extra = { odds = 10 } },
     pos = { x = 0, y = 0 },
     rarity = 1,
     cost = 3,
@@ -20,11 +20,10 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.joker_main then
             if (math.random() * card.ability.extra.odds) < G.GAME.probabilities.normal then
-                G.jokers:remove_card(card)
-                card:remove()
-
                 G.E_MANAGER:add_event(Event({
                     func = function()
+                        G.jokers:remove_card(card)
+                        card:remove()
                         add_joker("j_mm_1per_low_fat_milk", nil, nil, nil)
                         return true
                     end,

@@ -7,7 +7,7 @@ SMODS.Atlas({
 
 SMODS.Joker {
     key = "rigatoni_pasta",
-    config = { extra = { odds = 8 } },
+    config = { extra = { odds = 6 } },
     pos = { x = 0, y = 0 },
     rarity = 2,
     cost = 6,

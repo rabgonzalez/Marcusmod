@@ -7,7 +7,7 @@ SMODS.Atlas({
 
 SMODS.Joker {
     key = "sus_rock",
-    config = { extra = 0.25, Xmult = 1, max_Xmult = 5 },
+    config = { extra = 0.5, Xmult = 1, max_Xmult = 5 },
     pos = { x = 0, y = 0 },
     rarity = 1,
     cost = 4,
@@ -18,9 +18,8 @@ SMODS.Joker {
     atlas = 'sus_rock',
 
     calculate = function(self, card, context)
-        if card.ability.Xmult >= card.ability.max_Xmult then return end
-
         if context.discard and context.other_card then
+            if card.ability.Xmult >= card.ability.max_Xmult then return end
             -- If the discarded card is a Stone Card
             if context.other_card.ability.name == 'Stone Card' then
                 -- We add the extra to the current Xmult value

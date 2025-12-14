@@ -9,6 +9,6 @@
   "priority": 0,
   "badge_colour": "ffa500",
   "badge_text_colour": "",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "dependencies": ["Steamodded (>=1.0.0~BETA-0614a)"]
 }

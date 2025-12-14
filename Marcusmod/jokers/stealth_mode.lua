@@ -52,7 +52,7 @@ SMODS.Joker {
 
                             if _planet then
                                 local new_card = create_card('Planet', G.consumeables, nil, nil, nil, nil, _planet,
-                                'stealth')
+                                    'stealth')
                                 new_card:add_to_deck()
                                 G.consumeables:emplace(new_card)
                                 G.GAME.consumeable_buffer = 0
@@ -70,6 +70,8 @@ SMODS.Joker {
     end,
 
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.poker_hand or 'none' } }
+        local raw_hand = card.ability.poker_hand
+        local localized_text = G.localization.misc.poker_hands[raw_hand] or nil
+        return { vars = { localized_text or 'none' } }
     end
 }

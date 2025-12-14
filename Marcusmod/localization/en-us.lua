@@ -6,7 +6,7 @@ return {
                 text = {
                     "This joker gains {X:mult,C:white}X#2#{} Mult",
                     "every time a {C:attention}Stone{} card",
-                    "is discarded (Max {C:red}X#3#{} Mult)",
+                    "is discarded {s:0.8}(Max{} {C:red,s:0.8}X#3#{} {s:0.8}Mult){}",
                     "{C:inactive}(Currently{} {C:red}X#1#{} {C:inactive}Mult){}",
                 },
             },
@@ -23,7 +23,7 @@ return {
                 name = "Marcus",
                 text = {
                     "Gives {C:red}+#2#{} Mult",
-                    "for all other {X:gold,C:white}Marcusmod{}",
+                    "for all other {X:attention,C:white}Marcusmod{}",
                     "jokers in hand",
                     "{C:inactive}(Currently{} {C:red}+#1#{} {C:inactive}Mult){}",
                 },
@@ -40,8 +40,7 @@ return {
                 name = "1% Low Fat Milk",
                 text = {
                     "Gains {C:chips,E:1}+#1#{} Chips",
-                    "each time a",
-                    "hand is played"
+                    "each time a hand is played"
                 },
             },
             j_mm_walgreens_coupon = {
@@ -49,7 +48,7 @@ return {
                 text = {
                     "Gives {C:attention}#1#%{} discount",
                     "in the shop every {C:red}#2#{}",
-                    "skipped blinds (Max {C:attention}#4#%{})",
+                    "skipped blinds",
                     "{C:inactive}({C:red}#3#{} {C:inactive}skips remaining){}",
                 },
             },
@@ -81,6 +80,6 @@ return {
             a_sold_tally = "#1#/#2# Sold",
             a_xmult = "X#1# Mult",
             a_xmult_minus = "-X#1# Mult",
-        }
+        },
     }
 }
