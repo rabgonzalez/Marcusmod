@@ -24,7 +24,7 @@ Extract the zip file
 Move the folder to 
 
 #### Windows
-> %AppData%/Balatro/mods
+> %AppData%/Balatro/Mods
 
 #### Linux
 It depends on the Steam's installation version
