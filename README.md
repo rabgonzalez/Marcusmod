@@ -17,7 +17,7 @@ Here is a tutorial on how to download steammoded and lovely injector
 - [Steammoded installation guide](https://github.com/Steamodded/smods/wiki/)
 
 ### Marcusmod
-Install the latest release of Marcusmod
+Download the [latest release](https://github.com/rabgonzalez/Marcusmod/releases) of Marcusmod
 
 Extract the zip file
 
