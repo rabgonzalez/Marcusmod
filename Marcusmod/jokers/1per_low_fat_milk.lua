@@ -7,7 +7,7 @@ SMODS.Atlas({
 
 SMODS.Joker {
     key = "1per_low_fat_milk",
-    config = { extra = { chips = 1000 } },
+    config = { extra = { chips = 500 } },
     pos = { x = 0, y = 0 },
     rarity = 4,
     cost = nil,
