@@ -1,4 +1,6 @@
 # Marcusmod
+![Marcusmod Banner](/Marcusmod/assets/media/mod_banner.png)
+
 Marcusmod is a mod for Balatro which contains new jokers and soon new cards, tarots and planets!
 
 - [Marcusmod](#marcusmod)
