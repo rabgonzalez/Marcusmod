@@ -60,6 +60,14 @@ return {
                     "{C:inactive}(mano jugada: {C:attention}#1#{}{C:inactive}){}"
                 },
             },
+        },
+        Blind = {
+            bl_mm_the_worm = {
+                name = "El Gusano",
+                text = {
+                    "Derrota al Gusano",
+                },
+            },
         }
     },
 
