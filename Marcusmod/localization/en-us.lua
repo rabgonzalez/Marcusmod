@@ -63,12 +63,11 @@ return {
             },
         },
         Blind = {
-            bl_mm_the_worm = {
-                name = "The Worm",
-                text = {
-                    "Defeat The Worm",
-                },
-            },
+            bl_mm_the_last_high_card = { name = "The Last High Card", text = { "Playing a {C:attention}High Card{}, enhance the card played" } },
+            bl_mm_the_script = { name = "The Script", text = { "Play the random hand shown", "The required hand changes after every play" } },
+            bl_mm_the_glitch = { name = "The Glitch", text = { "Your hand is scored as the random hand", "shown in the score marker" } },
+            bl_mm_the_buffet = { name = "The Buffet", text = { "Extra large blind", "Create a random {C:tarot}Tarot{} after every hand played" } },
+            bl_mm_the_unplugged = { name = "The Unplugged", text = { "Debuff the three rightmost Jokers", "All Jokers trigger one additional time" } },
         }
     },
 
@@ -88,6 +87,10 @@ return {
             a_sold_tally = "#1#/#2# Sold",
             a_xmult = "X#1# Mult",
             a_xmult_minus = "-X#1# Mult",
+            k_mm_blessed = "Blessed!",
+            k_mm_play_hand = "Play:",
+            k_mm_wrong_hand = "Required hand:",
+            k_mm_randomly_becomes = "Counts as:",
         },
     }
 }

@@ -62,12 +62,11 @@ return {
             },
         },
         Blind = {
-            bl_mm_the_worm = {
-                name = "El Gusano",
-                text = {
-                    "Derrota al Gusano",
-                },
-            },
+            bl_mm_the_last_high_card = { name = "La última carta alta", text = { "Jugar una {C:attention}Carta alta{}, recibe una mejora" } },
+            bl_mm_the_script = { name = "El guion", text = { "Juega la mano aleatoria indicada", "La mano requerida cambia tras cada jugada" } },
+            bl_mm_the_glitch = { name = "El Glitch", text = { "Tu mano puntúa como la mano aleatoria", "que aparece en el marcador" } },
+            bl_mm_the_buffet = { name = "El buffet", text = { "Ciega extragrande", "Crea un {C:tarot}Tarot{} aleatorio tras cada mano jugada" } },
+            bl_mm_the_unplugged = { name = "Desconectado", text = { "Debilita los tres comodines de la derecha", "Todos los comodines se activan una vez más" } },
         }
     },
 
@@ -84,6 +83,10 @@ return {
             a_sold_tally = "#1#/#2# Vendidos",
             a_xmult = "X#1# Mult",
             a_xmult_minus = "-X#1# Mult",
+            k_mm_blessed = "¡Bendecida!",
+            k_mm_play_hand = "Juega:",
+            k_mm_wrong_hand = "Mano requerida:",
+            k_mm_randomly_becomes = "Cuenta como:",
         },
     }
 }

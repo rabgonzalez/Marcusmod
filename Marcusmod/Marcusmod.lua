@@ -1,3 +1,7 @@
+-- Enable Steamodded's Joker retrigger calculation contexts for The Unplugged.
+SMODS.current_mod.optional_features = SMODS.current_mod.optional_features or {}
+SMODS.current_mod.optional_features.retrigger_joker = true
+
 if SMODS.Atlas then
     SMODS.Atlas({
         key = "modicon",
