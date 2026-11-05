@@ -62,12 +62,51 @@ return {
                 },
             },
         },
+        Tarot = {
+            c_mm_round_interest = {
+                name = "Compound Interest",
+                text = {
+                    "At the end of each round,",
+                    "this card gains {C:money}+$1{} sell value"
+                }
+            },
+            c_mm_marcus_delivery = {
+                name = "Marcus Delivery",
+                text = {
+                    "Create a weighted random",
+                    "{C:attention}Marcusmod Joker{}",
+                    "Common Jokers are more likely",
+                    "{C:inactive}(Cannot create 1% Low Fat Milk){}"
+                }
+            },
+            c_mm_boss_shutdown = {
+                name = "Power Down",
+                text = {
+                    "Can only be used during a",
+                    "{C:attention}Boss Blind{}, disables it"
+                }
+            },
+            c_mm_encore = {
+                name = "Encore",
+                text = {
+                    "Retrigger every non-debuffed",
+                    "{C:attention}Joker{} once during your",
+                    "next played hand"
+                }
+            },
+        },
         Blind = {
-            bl_mm_the_last_high_card = { name = "The Last High Card", text = { "Playing a {C:attention}High Card{}, enhance the card played" } },
+            bl_mm_the_last_high_card = { name = "The Last High Card", text = { "If you play a {C:attention}High Card{}, enhance the last card played" } },
             bl_mm_the_script = { name = "The Script", text = { "Play the random hand shown", "The required hand changes after every play" } },
             bl_mm_the_glitch = { name = "The Glitch", text = { "Your hand is scored as the random hand", "shown in the score marker" } },
             bl_mm_the_buffet = { name = "The Buffet", text = { "Extra large blind", "Create a random {C:tarot}Tarot{} after every hand played" } },
             bl_mm_the_unplugged = { name = "The Unplugged", text = { "Debuff the three rightmost Jokers", "All Jokers trigger one additional time" } },
+            bl_mm_the_worm = {
+                name = "The Worm",
+                text = {
+                    "Defeat The Worm",
+                },
+            },
         }
     },
 
@@ -91,6 +130,9 @@ return {
             k_mm_play_hand = "Play:",
             k_mm_wrong_hand = "Required hand:",
             k_mm_randomly_becomes = "Counts as:",
+            k_mm_sell_value_up = "Sell Value +$1",
+            k_mm_encore_ready = "Encore!",
+            k_mm_encore_done = "Encore Complete",
         },
     }
 }
