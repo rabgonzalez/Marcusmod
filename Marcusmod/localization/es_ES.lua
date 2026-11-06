@@ -62,50 +62,42 @@ return {
             },
         },
         Tarot = {
-            c_mm_round_interest = {
-                name = "Interés compuesto",
+            c_mm_michigan = {
+                name = "Michigan",
                 text = {
                     "Al final de cada ronda,",
-                    "esta carta gana {C:money}+$1{} de valor de venta"
+                    "gana {C:money}+$1{} de valor de venta"
                 }
             },
             c_mm_marcus_delivery = {
                 name = "Envío de Marcus",
                 text = {
                     "Crea un comodín aleatorio",
-                    "de {C:attention}Marcusmod{} con probabilidades ponderadas",
-                    "Los comodines comunes son más probables",
-                    "{C:inactive}(No puede crear 1% Low Fat Milk){}"
+                    "de {C:attention}Marcusmod{}",
                 }
             },
-            c_mm_boss_shutdown = {
-                name = "Apagón",
+            c_mm_jimbo_james = {
+                name = "Jimbo James",
                 text = {
-                    "Solo se puede usar durante una",
-                    "{C:attention}Ciega jefe{} y la desactiva"
+                    "Desactiva una {C:attention}Ciega jefe{}",
+                    "durante la siguiente mano jugada",
                 }
             },
-            c_mm_encore = {
-                name = "Bis",
+            c_mm_kiss_me = {
+                name = "Beso",
                 text = {
-                    "Vuelve a activar una vez cada",
-                    "{C:attention}comodín{} no debilitado durante",
+                    "Vuelve a activar cada",
+                    "{C:attention}comodín{} durante",
                     "la siguiente mano jugada"
                 }
             },
         },
         Blind = {
-            bl_mm_the_last_high_card = { name = "La última carta alta", text = { "Si juegas una {C:attention}Carta alta{}, mejora la última carta jugada" } },
-            bl_mm_the_script = { name = "El guion", text = { "Juega la mano aleatoria indicada", "La mano requerida cambia tras cada jugada" } },
-            bl_mm_the_glitch = { name = "El Glitch", text = { "Tu mano puntúa como la mano aleatoria", "que aparece en el marcador" } },
-            bl_mm_the_buffet = { name = "El buffet", text = { "Ciega extragrande", "Crea un {C:tarot}Tarot{} aleatorio tras cada mano jugada" } },
-            bl_mm_the_unplugged = { name = "Desconectado", text = { "Debilita los tres comodines de la derecha", "Todos los comodines se activan una vez más" } },
-            bl_mm_the_worm = {
-                name = "El Gusano",
-                text = {
-                    "Derrota al Gusano",
-                },
-            },
+            bl_mm_the_son = { name = "El hijo", text = { "Jugar una {C:attention}Carta alta{} mejora la carta" } },
+            bl_mm_the_robert = { name = "El Robert", text = { "Juega la mano indicada", "cambia tras cada jugada" } },
+            bl_mm_the_glitch = { name = "El Glitch", text = { "Cada mano cuenta como una mano diferente" } },
+            bl_mm_the_money_laundry = { name = "El Lavado de Dinero", text = { "Crea un {C:tarot}Tarot{} aleatorio tras cada mano jugada" } },
+            bl_mm_the_government = { name = "El Gobierno", text = { "Desactiva los últimos {C:attention}3{} comodines", "Todos los comodines se activan una vez más" } },
         }
     },
 
@@ -127,8 +119,8 @@ return {
             k_mm_wrong_hand = "Mano requerida:",
             k_mm_randomly_becomes = "Cuenta como:",
             k_mm_sell_value_up = "Valor de venta +$1",
-            k_mm_encore_ready = "¡Bis!",
-            k_mm_encore_done = "Bis completado",
+            k_mm_kiss_me_ready = "Besame Robert",
+            k_mm_kiss_me_done = "Muah",
         },
     }
 }

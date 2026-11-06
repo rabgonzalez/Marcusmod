@@ -1,6 +1,6 @@
--- Power Down: suppresses the active Boss Blind for the next played hand only.
+-- Jimbo James: suppresses the active Boss Blind for the next played hand only.
 SMODS.Consumable {
-    key = 'boss_shutdown',
+    key = 'jimbo_james',
     set = 'Tarot',
     atlas = 'Tarot',
     prefix_config = { atlas = false },
@@ -13,19 +13,19 @@ SMODS.Consumable {
         return G and G.GAME and G.GAME.blind
             and G.GAME.blind.boss
             and not G.GAME.blind.disabled
-            and not G.GAME.mm_power_down_pending
+            and not G.GAME.mm_jimbo_james_pending
     end,
 
     use = function(self, card, area, copier)
         local blind = G and G.GAME and G.GAME.blind
         if not blind or not blind.boss or blind.disabled
-            or G.GAME.mm_power_down_pending then return end
+            or G.GAME.mm_jimbo_james_pending then return end
 
         -- Temporarily suppress the same disabled flag checked by the base game,
         -- but do not call blind:disable(): that invokes permanent boss cleanup
         -- callbacks and destroys state owned by custom bosses.
-        G.GAME.mm_power_down_pending = true
-        G.GAME.mm_power_down_blind = blind
+        G.GAME.mm_jimbo_james_pending = true
+        G.GAME.mm_jimbo_james_blind = blind
         blind.disabled = true
 
         -- Remove currently applied playing-card and Joker debuffs immediately.

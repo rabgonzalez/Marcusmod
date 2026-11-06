@@ -20,7 +20,10 @@ local function mm_glitch_create_mapping()
     -- hand to itself (a cyclic shift preserves a valid one-to-one mapping).
     local identity = true
     for i, hand in ipairs(mm_glitch_hands) do
-        if shuffled[i] ~= hand then identity = false break end
+        if shuffled[i] ~= hand then
+            identity = false
+            break
+        end
     end
     if identity then
         local first = table.remove(shuffled, 1)
@@ -71,7 +74,8 @@ SMODS.Blind {
         if self.disabled then return false end
         G.GAME.mm_glitch_current_real_hand = handname
         G.E_MANAGER:add_event(Event({
-            trigger = "after", delay = 0,
+            trigger = "after",
+            delay = 0,
             func = function()
                 if G.GAME and G.GAME.mm_glitch_map then
                     mm_glitch_show_hand(G.GAME.mm_glitch_current_real_hand)

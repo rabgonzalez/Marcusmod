@@ -1,6 +1,6 @@
--- The Buffet: an extra-large boss blind that grants a Tarot after each hand played.
+-- The Money Laundry: an extra-large boss blind that grants a Tarot after each hand played.
 SMODS.Blind {
-    key = "the_buffet",
+    key = "the_money_laundry",
     discovered = true,
     vars = {},
     pos = { x = 0, y = 0 },
@@ -15,7 +15,7 @@ SMODS.Blind {
     end,
 
     press_play = function(self)
-        local tarot = create_card("Tarot", G.consumeables, nil, nil, nil, nil, nil, "mm_the_buffet")
+        local tarot = create_card("Tarot", G.consumeables, nil, nil, nil, nil, nil, "mm_the_money_laundry")
         if tarot then
             tarot:add_to_deck()
             G.consumeables:emplace(tarot)

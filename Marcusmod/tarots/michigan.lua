@@ -1,7 +1,7 @@
--- Compound Interest: while this Tarot remains in the consumable inventory,
+-- Michigan: while this Tarot remains in the consumable inventory,
 -- its sell value increases by $1 at the end of every completed round.
 SMODS.Consumable {
-    key = 'round_interest',
+    key = 'michigan',
     set = 'Tarot',
     atlas = 'Tarot',
     prefix_config = { atlas = false }, -- Use Balatro's vanilla Tarot atlas (do not prefix it with mm_)
