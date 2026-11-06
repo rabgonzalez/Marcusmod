@@ -17,28 +17,18 @@ SMODS.Consumable {
     end,
 
     use = function(self, card, area, copier)
-        if not (G and G.GAME and G.GAME.blind and G.GAME.blind.boss)
-            or G.GAME.blind.disabled then return end
+        local blind = G and G.GAME and G.GAME.blind
+        if not blind or not blind.boss or blind.disabled
+            or G.GAME.mm_power_down_pending then return end
 
+        -- Temporarily suppress the same disabled flag checked by the base game,
+        -- but do not call blind:disable(): that invokes permanent boss cleanup
+        -- callbacks and destroys state owned by custom bosses.
         G.GAME.mm_power_down_pending = true
-        G.GAME.mm_power_down_active = true
+        G.GAME.mm_power_down_blind = blind
+        blind.disabled = true
 
-        -- Bell's forced-selection rule is stored on individual playing cards,
-        -- so hide it for this hand and restore it when context.after fires.
-        G.GAME.mm_power_down_forced_cards = {}
-        for _, playing_card in ipairs(G.playing_cards or {}) do
-            if playing_card.ability and playing_card.ability.forced_selection then
-                G.GAME.mm_power_down_forced_cards[#G.GAME.mm_power_down_forced_cards + 1] = {
-                    card = playing_card,
-                    value = playing_card.ability.forced_selection
-                }
-                playing_card.ability.forced_selection = nil
-            end
-        end
-
-        -- Recalculate immediately while the Blind callbacks are bypassed.
-        -- This clears existing Boss debuffs from both playing cards and Jokers
-        -- without changing debuffs owned by other effects.
+        -- Remove currently applied playing-card and Joker debuffs immediately.
         if SMODS and SMODS.recalc_debuff then
             for _, target in ipairs(G.playing_cards or {}) do
                 SMODS.recalc_debuff(target)
@@ -46,6 +36,13 @@ SMODS.Consumable {
             for _, target in ipairs((G.jokers and G.jokers.cards) or {}) do
                 SMODS.recalc_debuff(target)
             end
+        end
+
+        -- Cerulean Bell can already have marked cards in hand as forced.
+        -- Clear those marks for this hand; its normal draw hook can apply them
+        -- again once the Blind has been re-enabled.
+        for _, target in ipairs(G.playing_cards or {}) do
+            if target.ability then target.ability.forced_selection = nil end
         end
     end
 }

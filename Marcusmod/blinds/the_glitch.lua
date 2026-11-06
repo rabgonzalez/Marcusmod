@@ -68,6 +68,7 @@ SMODS.Blind {
     -- The actual hand name is supplied by the game during the hand check.
     -- Show its fixed equivalent in the score marker.
     debuff_hand = function(self, cards, hand, handname, check)
+        if self.disabled then return false end
         G.GAME.mm_glitch_current_real_hand = handname
         G.E_MANAGER:add_event(Event({
             trigger = "after", delay = 0,
@@ -83,6 +84,7 @@ SMODS.Blind {
 
     -- Replace the base chips/mult with the levelled values of the mapped hand.
     modify_hand = function(self, cards, poker_hands, text, mult, hand_chips)
+        if self.disabled then return mult, hand_chips, false end
         local mapped_hand = G.GAME.mm_glitch_map and G.GAME.mm_glitch_map[text]
         local stats = mapped_hand and G.GAME.hands and G.GAME.hands[mapped_hand]
         if stats and stats.chips and stats.mult then

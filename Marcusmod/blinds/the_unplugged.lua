@@ -2,6 +2,10 @@
 -- Jokers are sold or rearranged during the blind. Every other Joker retriggers once.
 local MM_UNPLUGGED_DEBUFF_SOURCE = "mm_the_unplugged"
 
+-- Expose the refresh routine so Power Down can restore this blind's custom
+-- source-based Joker debuffs after it re-enables the blind.
+MM_UNPLUGGED = MM_UNPLUGGED or {}
+
 local function mm_unplugged_refresh_jokers()
     if not G.jokers or not G.jokers.cards then return end
 
@@ -17,6 +21,8 @@ local function mm_unplugged_refresh_jokers()
         end
     end
 end
+
+MM_UNPLUGGED.refresh_jokers = mm_unplugged_refresh_jokers
 
 local function mm_unplugged_clear_jokers()
     if not G.jokers or not G.jokers.cards then return end
@@ -42,6 +48,7 @@ SMODS.Blind {
     end,
 
     set_blind = function(self)
+        if G and G.GAME then G.GAME.mm_unplugged_active = true end
         mm_unplugged_refresh_jokers()
     end,
 
@@ -66,9 +73,11 @@ SMODS.Blind {
     end,
 
     disable = function(self)
+        if G and G.GAME then G.GAME.mm_unplugged_active = nil end
         mm_unplugged_clear_jokers()
     end,
     defeat = function(self)
+        if G and G.GAME then G.GAME.mm_unplugged_active = nil end
         mm_unplugged_clear_jokers()
     end,
 }

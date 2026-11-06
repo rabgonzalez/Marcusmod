@@ -73,6 +73,7 @@ SMODS.Blind {
     -- Snapshot the round counter when a play starts. This is independent of
     -- debuff_hand's preview/real-check calls and cannot advance on previews.
     press_play = function(self)
+        if self.disabled then return end
         G.GAME.mm_script_hands_played_at_press = G.GAME.current_round.hands_played or 0
         G.GAME.mm_script_advanced_for_play = false
     end,
@@ -80,6 +81,7 @@ SMODS.Blind {
     -- Balatro calls drawn_to_hand after the played hand resolves and the new
     -- hand is dealt. hands_played has then increased, so advance exactly once.
     drawn_to_hand = function(self)
+        if self.disabled then return end
         local before = G.GAME.mm_script_hands_played_at_press
         local now = G.GAME.current_round.hands_played or 0
         if before ~= nil and now > before and not G.GAME.mm_script_advanced_for_play then
@@ -90,6 +92,7 @@ SMODS.Blind {
     end,
 
     debuff_hand = function(self, cards, hand, handname, check)
+        if self.disabled then return false end
         return handname ~= G.GAME.mm_script_required_hand
     end,
 

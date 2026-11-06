@@ -29,16 +29,12 @@ for _, file in ipairs(blind_src) do
     assert(SMODS.load_file("blinds/" .. file))()
 end
 
--- Runtime hooks for the one-hand Tarot effects.
--- Power Down bypasses the active Boss Blind's gameplay callbacks for exactly
--- one played hand. It does NOT set Blind.disabled, so the Blind lifecycle,
--- scoring requirement and end-of-round handling remain intact.
-local function mm_power_down_is_active()
-    return G and G.GAME and G.GAME.mm_power_down_active == true
-end
-
-local function mm_power_down_recalculate_all_cards()
+-- Power Down temporarily sets Blind.disabled directly. Do NOT call Blind:disable():
+-- Steamodded dispatches the Blind's permanent `disable` callback from that method,
+-- which clears custom state (for example The Glitch mapping and The Script target).
+local function mm_power_down_recalculate_all_cards(blind)
     if not (G and G.GAME) then return end
+
     if SMODS and SMODS.recalc_debuff then
         for _, card in ipairs(G.playing_cards or {}) do
             SMODS.recalc_debuff(card)
@@ -46,75 +42,40 @@ local function mm_power_down_recalculate_all_cards()
         for _, card in ipairs((G.jokers and G.jokers.cards) or {}) do
             SMODS.recalc_debuff(card)
         end
+    elseif blind and blind.debuff_card then
+        for _, card in ipairs(G.playing_cards or {}) do blind:debuff_card(card) end
+        for _, card in ipairs((G.jokers and G.jokers.cards) or {}) do blind:debuff_card(card) end
     end
-end
-
-local function mm_power_down_restore_forced_selection()
-    if not (G and G.GAME) then return end
-    for _, entry in ipairs(G.GAME.mm_power_down_forced_cards or {}) do
-        if entry.card and entry.card.ability then
-            entry.card.ability.forced_selection = entry.value
-        end
-    end
-    G.GAME.mm_power_down_forced_cards = nil
 end
 
 local function mm_power_down_finish_hand()
     if not (G and G.GAME and G.GAME.mm_power_down_pending) then return end
-    -- Stop bypassing Blind callbacks first, then restore any state that was
-    -- explicitly removed for the protected hand and recalculate both card
-    -- areas. This restores Boss debuffs on Jokers as well as playing cards.
-    G.GAME.mm_power_down_active = nil
+
+    local blind = G.GAME.mm_power_down_blind
     G.GAME.mm_power_down_pending = nil
-    mm_power_down_restore_forced_selection()
-    mm_power_down_recalculate_all_cards()
-end
+    G.GAME.mm_power_down_blind = nil
 
-local function mm_wrap_blind_method(method_name, bypass)
-    if not Blind or type(Blind[method_name]) ~= 'function' then return end
-    local marker = '_mm_power_down_wrapped_' .. method_name
-    if Blind[marker] then return end
+    -- Re-enable the same Blind after the played hand has finished scoring.
+    -- Assigning the flag directly avoids invoking its permanent `enable/disable`
+    -- lifecycle callbacks and preserves all custom boss state.
+    if blind and G.GAME.blind == blind then
+        blind.disabled = false
+        if blind.set_text then blind:set_text() end
+        mm_power_down_recalculate_all_cards(blind)
 
-    local original = Blind[method_name]
-    Blind[method_name] = function(self, ...)
-        if mm_power_down_is_active() then
-            return bypass(self, ...)
+        -- The Unplugged applies Joker debuffs through a custom SMODS debuff
+        -- source rather than Blind:debuff_card. Re-apply that source explicitly
+        -- after the generic recalculation, which cannot recreate custom sources.
+        if G.GAME.mm_unplugged_active and MM_UNPLUGGED
+            and MM_UNPLUGGED.refresh_jokers then
+            MM_UNPLUGGED.refresh_jokers()
         end
-        return original(self, ...)
+
+        if blind.wiggle then blind:wiggle() end
     end
-    Blind[marker] = true
 end
 
--- Suppress all standard Blind callbacks that can impose restrictions or
--- stateful effects. In particular calculate() covers effects such as losing
--- money, while recalc_debuff() covers both Joker and playing-card debuffs.
-mm_wrap_blind_method('calculate', function(self, context, ...)
-    return nil
-end)
-mm_wrap_blind_method('recalc_debuff', function(self, card, from_blind, ...)
-    return false
-end)
-mm_wrap_blind_method('debuff_card', function(self, card, from_blind, ...)
-    return nil
-end)
-mm_wrap_blind_method('debuff_hand', function(self, cards, hand, handname, check, ...)
-    return false
-end)
-mm_wrap_blind_method('drawn_to_hand', function(self, ...)
-    return nil
-end)
-mm_wrap_blind_method('press_play', function(self, ...)
-    return nil
-end)
-mm_wrap_blind_method('stay_flipped', function(self, area, card, ...)
-    return false
-end)
-mm_wrap_blind_method('modify_hand', function(self, cards, poker_hands, text, mult, hand_chips, ...)
-    return mult, hand_chips, false
-end)
-
--- Power Down expires after the next hand has fully resolved. context.after is
--- emitted after a played hand's scoring, not at the end of the round.
+-- Expire Power Down after scoring the next played hand, not on a later draw.
 if SMODS.calculate_context and not SMODS._mm_tarot_context_wrapped then
     local old_calculate_context = SMODS.calculate_context
     SMODS.calculate_context = function(context, return_table, ...)
