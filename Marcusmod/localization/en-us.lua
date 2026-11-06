@@ -81,7 +81,7 @@ return {
                 name = "Jimbo James",
                 text = {
                     "Disables the next played {C:attention}Boss Blind{}",
-                    "This effect only lasts for one hand",
+                    "{C:inactive}(This effect only lasts for one hand){}",
                 }
             },
             c_mm_kiss_me = {
@@ -94,10 +94,10 @@ return {
             },
         },
         Blind = {
-            bl_mm_the_son = { name = "The Son", text = { "Playing a {C:attention}High Card{} enhances the card" } },
+            bl_mm_the_son = { name = "The Son", text = { "Playing a {C:attention}High Card{}", "enhances the card" } },
             bl_mm_the_robert = { name = "The Robert", text = { "Play the {C:attention}required hand{}", "changes after every play" } },
             bl_mm_the_glitch = { name = "The Glitch", text = { "Each hand counts as a different hand" } },
-            bl_mm_the_money_laundry = { name = "The Money Laundry", text = { "Create a random {C:tarot}Tarot{} after every hand played" } },
+            bl_mm_the_money_laundry = { name = "The Money Laundry", text = { "Create a random {C:tarot}Tarot{}", "after every hand played" } },
             bl_mm_the_government = { name = "The Government", text = { "Disables the last {C:attention}3{} Jokers", "All Jokers trigger one additional time" } },
         }
     },

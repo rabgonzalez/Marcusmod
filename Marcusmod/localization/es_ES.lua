@@ -80,7 +80,7 @@ return {
                 name = "Jimbo James",
                 text = {
                     "Desactiva una {C:attention}Ciega jefe{}",
-                    "durante la siguiente mano jugada",
+                    "{C:inactive}(Este efecto solo dura una mano){}",
                 }
             },
             c_mm_kiss_me = {
@@ -93,10 +93,10 @@ return {
             },
         },
         Blind = {
-            bl_mm_the_son = { name = "El hijo", text = { "Jugar una {C:attention}Carta alta{} mejora la carta" } },
+            bl_mm_the_son = { name = "El hijo", text = { "Jugar una {C:attention}Carta alta{}", "mejora la carta" } },
             bl_mm_the_robert = { name = "El Robert", text = { "Juega la mano indicada", "cambia tras cada jugada" } },
             bl_mm_the_glitch = { name = "El Glitch", text = { "Cada mano cuenta como una mano diferente" } },
-            bl_mm_the_money_laundry = { name = "El Lavado de Dinero", text = { "Crea un {C:tarot}Tarot{} aleatorio tras cada mano jugada" } },
+            bl_mm_the_money_laundry = { name = "El Lavado de Dinero", text = { "Crea un {C:tarot}Tarot{} aleatorio", "tras cada mano jugada" } },
             bl_mm_the_government = { name = "El Gobierno", text = { "Desactiva los últimos {C:attention}3{} comodines", "Todos los comodines se activan una vez más" } },
         }
     },

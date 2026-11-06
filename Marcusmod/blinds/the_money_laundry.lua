@@ -15,6 +15,7 @@ SMODS.Blind {
     end,
 
     press_play = function(self)
+        if #G.consumeables.cards >= G.consumeables.config.card_limit then return end
         local tarot = create_card("Tarot", G.consumeables, nil, nil, nil, nil, nil, "mm_the_money_laundry")
         if tarot then
             tarot:add_to_deck()
